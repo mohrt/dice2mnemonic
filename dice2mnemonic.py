@@ -1,10 +1,10 @@
-import mnemonic
+from python_mnemonic import mnemonic
 import sys
 import math
 import random
 import pprint
 
-english = open('wordlist/english.txt').read().split('\n')
+english = open('python_mnemonic/wordlist/english.txt').read().split('\n')
 
 def get_input(n):
 	while True:
@@ -54,8 +54,6 @@ if sides < 2:
 	sys.exit(1)
 
 m = 2048 # BIP39 word list length
-r = int(math.ceil(math.log(m, sides)))
-expected_rolls = r * sides**r / m
 
 seed = []
 
@@ -71,12 +69,12 @@ for x in range(seed_length-1):
 			seed.append(word_index)
 			break
 
-phrase = ''
+phrase_array = []
 
 for word_index in seed:
-	phrase = phrase + ' ' + english[word_index]
+	phrase_array.append(english[word_index])
 
-print('words no checksum: ', phrase)
+phrase = ' '.join(phrase_array)
 
 checksum = []
 

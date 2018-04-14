@@ -23,6 +23,7 @@ def get_input(n):
 	return roll
 
 # mimics m-sided die using an n-sided die
+# https://math.stackexchange.com/a/2249950
 def uniform_generator(m, n): 
     """
     Expected number of rolls
